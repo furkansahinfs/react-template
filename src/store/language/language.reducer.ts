@@ -1,22 +1,16 @@
-import {
-	LanguageAction,
-	LanguageState,
-	LANGUAGE_ADD,
-	LANGUAGE_CLEAR,
-} from "./language.types";
+/* eslint-disable no-param-reassign */
+import { createReducer } from "@reduxjs/toolkit";
+import { languageAdd, languageClear } from "./language.action";
+import { LanguageState } from "./language.types";
 
 const initialState: LanguageState = { language: "" };
 
-export default function languageReducer(
-	action: LanguageAction,
-	state: LanguageState = initialState,
-): LanguageState {
-	switch (action?.type) {
-		case LANGUAGE_CLEAR:
-			return { ...initialState };
-		case LANGUAGE_ADD:
-			return { ...state, ...action.payload };
-		default:
-			return state;
-	}
-}
+export const languageReducer = createReducer(initialState, (builder) => {
+	builder
+		.addCase(languageAdd, (state, action) => {
+			state.language = action.payload.language;
+		})
+		.addCase(languageClear, (state, action) => {
+			state.language = action.payload.language;
+		});
+});

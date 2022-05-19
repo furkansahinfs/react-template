@@ -5,7 +5,7 @@ import { lightOn, darkOn } from "../store/theme";
  * Get the theme from Redux
  */
 export function getTheme() {
-	return store.getState().theme["theme"];
+	return store.getState().theme.theme;
 }
 
 /**

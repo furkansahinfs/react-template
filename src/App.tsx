@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import logo from "./logo.svg";
 import "./App.scss";
-import { isAuthenticated } from "./helpers";
-import Login from "./pages/auth/Login/Login";
 
 const App = () => {
-	const [isAuth, setIsAuth] = useState<boolean>(false);
-	const navigate = useNavigate();
-	useEffect(() => {
-		(async () => {
-			setIsAuth(await isAuthenticated());
-		})();
-	}, []);
-
-	if (!isAuth) {
-		console.log("asd");
-		navigate("/login");
-	}
-	return isAuth ? (
+	return (
 		<div className="App">
 			<header className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
@@ -37,8 +22,6 @@ const App = () => {
 				</a>
 			</header>
 		</div>
-	) : (
-		<Login />
 	);
 };
 

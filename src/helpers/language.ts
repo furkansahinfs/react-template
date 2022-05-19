@@ -6,7 +6,7 @@ import { languageAdd, languageClear } from "../store/language";
  * Get the language from Redux
  */
 export function getLanguage() {
-	return store.getState().language["language"];
+	return store.getState().language;
 }
 
 /**

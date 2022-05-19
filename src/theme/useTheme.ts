@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { MyDarkTheme, MyDefaultTheme } from "./themes";
-import { IRootState } from "../store/store";
+import { ThemeState } from "../store/theme";
 
 const useTheme = () => {
-	const themeState = useSelector((state: IRootState) => state.theme);
+	const themeState = useSelector((state: ThemeState) => state);
 
 	return themeState.theme === "LIGHT" ? MyDefaultTheme : MyDarkTheme;
 };

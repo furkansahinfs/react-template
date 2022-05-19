@@ -1,31 +1,30 @@
+/* eslint-disable no-param-reassign */
+import { createReducer } from "@reduxjs/toolkit";
 import {
-	AuthAction,
-	AuthState,
-	AUTH_ADD_DEVICE,
-	AUTH_ADD_TOKEN,
-	AUTH_CLEAR,
-	AUTH_REMOVE_TOKEN,
-} from "./auth.types";
+	authAddDevice,
+	authAddToken,
+	authClear,
+	authRemoveToken,
+} from "./auth.action";
+import { AuthState } from "./auth.types";
 
 const initialState: AuthState = {
 	refresh_token: "",
 	deviceid: "",
 };
 
-export default function authReducer(
-	action: AuthAction,
-	state = initialState,
-): AuthState {
-	switch (action?.type) {
-		case AUTH_CLEAR:
-			return { ...initialState };
-		case AUTH_REMOVE_TOKEN:
-			return { ...state, refresh_token: "" };
-		case AUTH_ADD_DEVICE:
-			return { ...state, deviceid: action.payload.deviceid };
-		case AUTH_ADD_TOKEN:
-			return { ...state, refresh_token: action.payload.refresh_token };
-		default:
-			return state;
-	}
-}
+export const authReducer = createReducer(initialState, (builder) => {
+	builder
+		.addCase(authAddToken, (state, action) => {
+			state.refresh_token = action.payload.refresh_token;
+		})
+		.addCase(authAddDevice, (state, action) => {
+			state.deviceid = action.payload.deviceid;
+		})
+		.addCase(authClear, (state, action) => {
+			state = action.payload;
+		})
+		.addCase(authRemoveToken, (state, action) => {
+			state.refresh_token = action.payload.refresh_token;
+		});
+});

@@ -1,17 +1,16 @@
-import { ThemeAction, ThemeState, DARK, LIGHT } from "./theme.types";
+/* eslint-disable no-param-reassign */
+import { createReducer } from "@reduxjs/toolkit";
+import { darkOn, lightOn } from "./theme.action";
+import { ThemeState } from "./theme.types";
 
 const initialState: ThemeState = { theme: "LIGHT" };
 
-export default function themeReducer(
-	action: ThemeAction,
-	state = initialState,
-): ThemeState {
-	switch (action?.type) {
-		case DARK:
-			return { ...state, ...action.payload };
-		case LIGHT:
-			return { ...state, ...action.payload };
-		default:
-			return state;
-	}
-}
+export const themeReducer = createReducer(initialState, (builder) => {
+	builder
+		.addCase(lightOn, (state, action) => {
+			state.theme = action.payload.theme;
+		})
+		.addCase(darkOn, (state, action) => {
+			state.theme = action.payload.theme;
+		});
+});
