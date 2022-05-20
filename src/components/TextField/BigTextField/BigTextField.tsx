@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import TextField from "@mui/material/TextField";
 import { useTheme } from "../../../theme";
@@ -5,21 +6,27 @@ import "./BigTextField.scss";
 
 interface BigTextFieldProps {
 	placeholderText: string;
-	val: string | undefined;
-	func: (text: string) => void;
+	value: string | undefined;
+	onChange: (text: string) => void;
 }
 
-const BigTextField = ({ placeholderText, val, func }: BigTextFieldProps) => {
-	const { colors } = useTheme();
+const BigTextField = ({
+	placeholderText,
+	value,
+	onChange,
+}: BigTextFieldProps) => {
+	const { dark } = useTheme();
 	return (
 		<TextField
 			variant="filled"
 			label={placeholderText}
 			placeholder={placeholderText}
-			defaultValue={val}
+			defaultValue={value}
 			multiline
 			rows={10}
-			onChange={(event) => func(event.target.value)}
+			onChange={(event) => onChange(event.target.value)}
+			color={dark ? "secondary" : "primary"}
+			fullWidth
 		/>
 	);
 };

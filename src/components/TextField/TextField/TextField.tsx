@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import TextField from "@mui/material/TextField";
 import { useTheme } from "../../../theme";
@@ -5,44 +6,36 @@ import "./TextField.scss";
 
 interface TextFieldProps {
 	placeholderText: string;
-	val: string | undefined;
-	keyboardType:
-		| "none"
-		| "text"
-		| "tel"
-		| "url"
-		| "email"
-		| "numeric"
-		| "decimal"
-		| "search"
-		| undefined;
-	func: (text: string) => void;
-	secureText: boolean;
-	iconName?: string;
+	value: string | undefined;
+	onChange: (text: string) => void;
 	multiline?: boolean;
-	mode: "outlined" | "filled";
+	mode: "outlined" | "filled" | "standard" | undefined;
+	type?: string;
 }
 
 const CustomTextField = ({
 	placeholderText,
-	val,
-	keyboardType,
-	func,
-	secureText,
-	iconName,
+	value,
+	onChange,
 	multiline,
 	mode,
+	type,
 }: TextFieldProps) => {
-	const { colors } = useTheme();
+	const { dark } = useTheme();
 	return (
 		<TextField
-			variant={mode}
+			id={placeholderText}
 			label={placeholderText}
 			placeholder={placeholderText}
-			defaultValue={val}
-			inputProps={{ inputMode: keyboardType }}
+			defaultValue={value}
 			multiline={multiline !== undefined ? multiline : false}
-			onChange={(event) => func(event.target.value)}
+			onChange={(event) => onChange(event.target.value)}
+			color={dark ? "secondary" : "primary"}
+			fullWidth
+			type={type !== undefined ? type : "text"}
+			variant={mode}
+
+			// eslint-disable-next-line react/jsx-no-duplicate-props
 		/>
 	);
 };

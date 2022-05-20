@@ -6,22 +6,16 @@ import { useTheme } from "../../../theme";
 interface ButtonProps {
 	onPressFunction: () => void;
 	text: string;
-	hasMarginVertical?: boolean;
-	widthFit?: boolean;
 }
 
-const TextButton = ({
-	onPressFunction,
-	text,
-	hasMarginVertical,
-	widthFit,
-}: ButtonProps) => {
-	const { colors } = useTheme();
+const TextButton = ({ onPressFunction, text }: ButtonProps) => {
+	const { dark } = useTheme();
 	return (
 		<Button
 			className="button-text margin-vertical - width"
 			variant="text"
 			onClick={onPressFunction}
+			color={dark ? "secondary" : "primary"}
 		>
 			{text}
 		</Button>

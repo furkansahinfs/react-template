@@ -15,7 +15,7 @@ async function tokenRefresher() {
 	// get user credentials from redux
 	const userCredentials = getUserCredentials();
 	// request new token
-	const response: any = await RefreshToken(userCredentials["refresh_token"]);
+	const response: any = await RefreshToken(userCredentials.refresh_token);
 	if (response?.access_token) {
 		// save credentials to the keychain
 		await setUserCredentials(response.refresh_token);

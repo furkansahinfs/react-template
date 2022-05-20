@@ -1,10 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
-import {
-	AUTH_ADD_DEVICE,
-	AUTH_ADD_TOKEN,
-	AUTH_CLEAR,
-	AUTH_REMOVE_TOKEN,
-} from "./auth.types";
+import { AUTH_ADD_TOKEN, AUTH_CLEAR, AUTH_REMOVE_TOKEN } from "./auth.types";
 
 export const authAddToken = createAction(
 	AUTH_ADD_TOKEN,
@@ -15,18 +10,9 @@ export const authAddToken = createAction(
 	},
 );
 
-export const authAddDevice = createAction(
-	AUTH_ADD_DEVICE,
-	function prepare(deviceid: string) {
-		return {
-			payload: { deviceid },
-		};
-	},
-);
-
 export const authClear = createAction(AUTH_CLEAR, function prepare() {
 	return {
-		payload: { deviceid: "", refresh_token: "" },
+		payload: { refresh_token: "" },
 	};
 });
 

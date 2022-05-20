@@ -7,26 +7,19 @@ interface ButtonProps {
 	onPressFunction: () => void;
 	text: string;
 	mode: "text" | "outlined" | "contained";
-	hasMarginVertical?: boolean;
-	widthFit?: boolean;
 }
 
-const CustomButton = ({
-	onPressFunction,
-	text,
-	mode,
-	hasMarginVertical,
-	widthFit,
-}: ButtonProps) => {
+const CustomButton = ({ onPressFunction, text, mode }: ButtonProps) => {
 	const { dark } = useTheme();
 	return (
 		<Button
-			className="button margin-vertical - width"
+			className="button"
 			color={dark ? "secondary" : "primary"}
 			variant={mode}
 			onClick={onPressFunction}
+			fullWidth
 		>
-			{text.toLocaleUpperCase()}
+			{text}
 		</Button>
 	);
 };

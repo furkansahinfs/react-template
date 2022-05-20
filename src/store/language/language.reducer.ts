@@ -3,7 +3,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import { languageAdd, languageClear } from "./language.action";
 import { LanguageState } from "./language.types";
 
-const initialState: LanguageState = { language: "" };
+const initialState: LanguageState = { language: "tr-TR" };
 
 export const languageReducer = createReducer(initialState, (builder) => {
 	builder
