@@ -108,15 +108,17 @@ export default class ApiHelper {
 		return {
 			data: null,
 			error: error.message,
+			header: null,
 			success: false,
 			status: 500,
 		};
 	};
 
 	static controlResponse = async (response: any) => {
-		if (response.status === 200) {
+		if (response.status >= 200 && response.status <= 206) {
 			return {
 				data: response.data,
+				header: response.header,
 				success: true,
 				status: response.status,
 			};
@@ -126,12 +128,14 @@ export default class ApiHelper {
 		}
 		return {
 			data: response.data,
+
 			error:
 				response?.data?.error?.message !== undefined
 					? response.data.error.message
 					: response?.data?.message !== undefined
 					? response.data.message
 					: "Error",
+			header: response.header,
 			success: false,
 			status: response.status,
 		};

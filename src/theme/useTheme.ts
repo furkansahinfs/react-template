@@ -4,7 +4,7 @@ import { ThemeState } from "../store/theme";
 
 const useTheme = () => {
 	const themeState = useSelector((state: { theme: ThemeState }) => state.theme);
-	return themeState.theme === "LIGHT" ? MyDefaultTheme : MyDarkTheme;
+	return themeState.theme === "DARK" ? MyDefaultTheme : MyDarkTheme;
 };
 
 export default useTheme;

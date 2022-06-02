@@ -28,6 +28,7 @@ export interface Point {
 
 export interface IResponse {
 	data: any;
+	header: any;
 	error?: string;
 	success: boolean;
 	status: number;

@@ -10,9 +10,13 @@ const en = {
 	},
 	pages: {
 		login: {
-			username: "Username",
+			email: "Email",
 			password: "Password",
 			submit: "Login",
+			header: {
+				description: "Log in to continue..",
+				welcome: "Welcome to CMS",
+			},
 		},
 	},
 	days: {

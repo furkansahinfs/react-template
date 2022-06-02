@@ -12,5 +12,8 @@ export const languageReducer = createReducer(initialState, (builder) => {
 		})
 		.addCase(languageClear, (state, action) => {
 			state.language = action.payload.language;
+		})
+		.addDefaultCase((state, action) => {
+			state = action.payload;
 		});
 });

@@ -17,5 +17,8 @@ export const authReducer = createReducer(initialState, (builder) => {
 		})
 		.addCase(authRemoveToken, (state, action) => {
 			state.refresh_token = action.payload.refresh_token;
+		})
+		.addDefaultCase((state, action) => {
+			state = action.payload;
 		});
 });

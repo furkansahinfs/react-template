@@ -10,9 +10,13 @@ const tr = {
 	},
 	pages: {
 		login: {
-			username: "Kullanıcı Adı",
+			email: "E-posta",
 			password: "Parola",
 			submit: "Giriş Yap",
+			header: {
+				description: "Devam etmek için giriş yap..",
+				welcome: "CMS'ye Hoş Geldin",
+			},
 		},
 	},
 	days: {

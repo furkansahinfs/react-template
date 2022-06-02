@@ -6,18 +6,25 @@ import { useTheme } from "../../../theme";
 interface ButtonProps {
 	onPressFunction: () => void;
 	text: string;
-	mode: "text" | "outlined" | "contained";
+	variant: "text" | "outlined" | "contained";
+	size: "large" | "medium" | "small";
 }
 
-const CustomButton = ({ onPressFunction, text, mode }: ButtonProps) => {
-	const { dark } = useTheme();
+const CustomButton = ({
+	onPressFunction,
+	text,
+	variant,
+	size,
+}: ButtonProps) => {
+	const { colors } = useTheme();
 	return (
 		<Button
 			className="button"
-			color={dark ? "secondary" : "primary"}
-			variant={mode}
+			variant={variant}
 			onClick={onPressFunction}
 			fullWidth
+			sx={{ borderRadius: 30, backgroundColor: colors.button }}
+			size={size}
 		>
 			{text}
 		</Button>

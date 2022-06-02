@@ -6,6 +6,7 @@ const controlResponse = async (response: IResponse) => {
 	if (response.status === 200) {
 		return {
 			data: response.data,
+			header: response.header,
 			success: true,
 			status: response.status,
 		};
@@ -15,6 +16,7 @@ const controlResponse = async (response: IResponse) => {
 		return {
 			data: { error: "Unauthorized" },
 			error: "Unauthorized",
+			header: response.header,
 			success: false,
 			status: 401,
 		};
@@ -27,6 +29,7 @@ const controlResponse = async (response: IResponse) => {
 				: response.data.message !== undefined
 				? response.data.message
 				: "Error",
+		header: response.header,
 		success: false,
 		status: response.status,
 	};
@@ -47,6 +50,7 @@ const refresh = async (config: object) => {
 	return {
 		data: { error: "Unauthorized" },
 		error: "Unauthorized",
+		header: null,
 		success: false,
 		status: 401,
 	};

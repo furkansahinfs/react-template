@@ -4,18 +4,19 @@ import LoginForm from "./LoginForm/LoginForm";
 
 import "./Login.scss";
 import { useTheme } from "../../../theme";
+import { LoginRequest } from "../../../api";
 
 const Login = () => {
 	const { colors } = useTheme();
 	const handleLogin = useCallback(
-		({ username, password }) => console.log(username, password),
+		({ email, password }) => LoginRequest(email, password),
 		[],
 	);
 
 	return (
 		<div className="main">
 			<Card
-				className="card-form"
+				className="d-flex w-100 border-0"
 				elevation={0}
 				style={{ backgroundColor: colors.background }}
 			>

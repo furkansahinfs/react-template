@@ -12,5 +12,8 @@ export const themeReducer = createReducer(initialState, (builder) => {
 		})
 		.addCase(darkOn, (state, action) => {
 			state.theme = action.payload.theme;
+		})
+		.addDefaultCase((state, action) => {
+			state = action.payload;
 		});
 });
