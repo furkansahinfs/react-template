@@ -11,6 +11,7 @@ interface TextFieldProps {
 	multiline?: boolean;
 	variant: "outlined" | "filled" | "standard";
 	type?: string;
+	extraClass?: string;
 }
 
 const CustomTextField = ({
@@ -20,10 +21,12 @@ const CustomTextField = ({
 	multiline,
 	variant,
 	type,
+	extraClass,
 }: TextFieldProps) => {
 	const { colors } = useTheme();
 	return (
 		<TextField
+			className={`shadow-sm ${extraClass}`}
 			id={placeholderText}
 			label={placeholderText}
 			placeholder={placeholderText}
@@ -34,13 +37,16 @@ const CustomTextField = ({
 			type={type !== undefined ? type : "text"}
 			sx={{
 				input: { color: colors.text },
-				backgroundColor: colors.textInput,
-				borderRadius: 5,
+				"& .css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+					"&": {
+						borderColor: colors.border,
+						borderRadius: 5,
+					},
+				},
 			}}
 			InputLabelProps={{
 				style: {
 					color: colors.text,
-					borderWidth: 0,
 				},
 			}}
 			variant={variant}

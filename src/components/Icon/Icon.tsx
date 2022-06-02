@@ -6,14 +6,15 @@ import "./Icon.scss";
 interface IconProps {
 	onPressFunction: () => void;
 	name: string;
+	extraClass?: string;
 }
 
-const CustomIcon = ({ onPressFunction, name }: IconProps) => {
+const CustomIcon = ({ onPressFunction, name, extraClass }: IconProps) => {
 	const { dark } = useTheme();
 	return (
 		<Icon
+			className={`icon-size ${extraClass}`}
 			onClick={onPressFunction}
-			className="button icon-size"
 			color={dark ? "secondary" : "primary"}
 		>
 			{name}

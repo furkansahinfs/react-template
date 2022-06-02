@@ -49,6 +49,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
 								)}
 							/>
 						</Box>
+
 						<Box id="login-form-box-content-password" className="my-4">
 							<Controller
 								name="password"

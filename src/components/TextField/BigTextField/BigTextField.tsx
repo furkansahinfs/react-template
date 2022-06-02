@@ -8,25 +8,38 @@ interface BigTextFieldProps {
 	placeholderText: string;
 	value: string | undefined;
 	onChange: (text: string) => void;
+	extraClass?: string;
 }
 
 const BigTextField = ({
 	placeholderText,
 	value,
 	onChange,
+	extraClass,
 }: BigTextFieldProps) => {
-	const { dark } = useTheme();
+	const { colors, dark } = useTheme();
 	return (
 		<TextField
+			className={` ${extraClass}`}
 			variant="filled"
 			label={placeholderText}
 			placeholder={placeholderText}
 			defaultValue={value}
 			multiline
-			rows={10}
 			onChange={(event) => onChange(event.target.value)}
 			color={dark ? "secondary" : "primary"}
 			fullWidth
+			sx={{
+				input: { color: colors.text },
+				"& .MuiInputBase-root": {
+					color: colors.text,
+				},
+			}}
+			InputLabelProps={{
+				style: {
+					color: colors.text,
+				},
+			}}
 		/>
 	);
 };

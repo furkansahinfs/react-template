@@ -7,12 +7,19 @@ interface CheckboxProps {
 	onPressFunction: () => void;
 	checked: boolean;
 	title: string;
+	extraClass?: string;
 }
 
-const CustomCheckbox = ({ onPressFunction, checked, title }: CheckboxProps) => {
+const CustomCheckbox = ({
+	onPressFunction,
+	checked,
+	title,
+	extraClass,
+}: CheckboxProps) => {
 	const { dark } = useTheme();
 	return (
 		<FormControlLabel
+			className={` ${extraClass}`}
 			control={<NativeCheckbox checked={checked} onChange={onPressFunction} />}
 			label={title}
 			color={dark ? "secondary" : "primary"}

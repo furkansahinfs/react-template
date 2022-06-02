@@ -8,6 +8,7 @@ interface ButtonProps {
 	text: string;
 	variant: "text" | "outlined" | "contained";
 	size: "large" | "medium" | "small";
+	extraClass?: string;
 }
 
 const CustomButton = ({
@@ -15,11 +16,12 @@ const CustomButton = ({
 	text,
 	variant,
 	size,
+	extraClass,
 }: ButtonProps) => {
 	const { colors } = useTheme();
 	return (
 		<Button
-			className="button"
+			className={`shadow ${extraClass}`}
 			variant={variant}
 			onClick={onPressFunction}
 			fullWidth
