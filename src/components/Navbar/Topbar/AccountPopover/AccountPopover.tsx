@@ -55,7 +55,7 @@ const AccountPopover = () => {
 				<img
 					src={Images.defaultProfilePicture}
 					alt="photoURL"
-					className="image-responsive p-0 rounded-circle"
+					className="image-responsive p-0 rounded-full"
 					width="30"
 					height="30"
 				/>

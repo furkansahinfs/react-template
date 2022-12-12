@@ -3,8 +3,6 @@ import { CircularProgress } from "@mui/material";
 import "./ActivityIndicator.scss";
 
 const Indicator = () => {
-	return (
-		<CircularProgress className="position-absolute start-50 top-50 loading" />
-	);
+	return <CircularProgress className="absolute top-1/2 left-1/2 loading" />;
 };
 export default Indicator;

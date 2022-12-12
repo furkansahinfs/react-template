@@ -7,7 +7,7 @@ const Header: React.FunctionComponent = () => {
 	const { colors } = useTheme();
 	const translate = useTranslateFunction();
 	return (
-		<div className="d-flex justify-content-center row">
+		<div className="flex flex-col justify-center items-center">
 			<Typography variant="h4" gutterBottom style={{ color: colors.text }}>
 				{translate("pages.login.header.welcome")}
 			</Typography>

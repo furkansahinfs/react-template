@@ -11,10 +11,10 @@ const WelcomeCard: React.FunctionComponent = () => {
 
 	return (
 		<div
-			className="bg-img d-flex row align-content-center"
+			className="bg-img flex flex flex-wrap content-center"
 			suppressHydrationWarning
 		>
-			<div style={{ backgroundColor: colors.background }}>
+			<div style={{ backgroundColor: colors.background }} className="w-full">
 				<Typography
 					variant="h4"
 					fontWeight="bold"
@@ -24,7 +24,7 @@ const WelcomeCard: React.FunctionComponent = () => {
 					{translate("pages.login.welcome")}
 				</Typography>
 
-				<div className="column my-2 d-flex justify-content-center">
+				<div className="column my-2 flex justify-center">
 					<ThemeIcon />
 					<LanguageIcon />
 				</div>

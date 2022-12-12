@@ -6,10 +6,7 @@ import { ThemeIcon } from "../../Icon";
 
 const Topbar = () => {
 	return (
-		<Stack
-			direction="row"
-			className="d-flex w-100 justify-content-end align-items-center"
-		>
+		<Stack direction="row" className="flex w-full justify-end items-center">
 			<ThemeIcon />
 			<LanguagePopover />
 			<AccountPopover />

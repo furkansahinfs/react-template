@@ -52,7 +52,7 @@ const LoginForm = () => {
 
 	return (
 		<div
-			className="container-fluid d-flex align-items-center"
+			className="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4 flex items-center"
 			style={{
 				backgroundColor: colors.card,
 			}}
@@ -63,7 +63,7 @@ const LoginForm = () => {
 					autoComplete="off"
 					noValidate
 					onSubmit={formik.handleSubmit}
-					className="col-md-8 mx-auto"
+					className="md:w-2/3 pr-4 pl-4 mx-auto"
 					onChange={formik.handleChange}
 				>
 					<Header />
