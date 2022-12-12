@@ -1,0 +1,1 @@
+export { useTranslateFunction } from "./useTranslate";

@@ -1,0 +1,48 @@
+const MyDefaultTheme = {
+	dark: false,
+	colors: {
+		background: "#f6f6f9",
+		background2: "#f9fafb",
+		border: "#858585",
+		button: "#103996",
+		card: "#fafafb",
+		navbar: "white",
+		notification: "#ff3b30",
+		primary: "#007aff",
+		secondary: "#E7EAF6",
+		text: "#393E46",
+		textInput: "#f7f7f7",
+		surface: "black",
+		accent: "black",
+		icon: "black",
+		onSurface: "black",
+		disabled: "black",
+		placeholder: "black",
+		backdrop: "black",
+	},
+};
+
+const MyDarkTheme = {
+	dark: true,
+	colors: {
+		background: "#121212",
+		background2: "#111111",
+		border: "#ffffff",
+		button: "#9c27b0",
+		card: "#000000",
+		navbar: "#000000",
+		notification: "#ff453a",
+		primary: "#0a84ff",
+		secondary: "#242424",
+		text: "white",
+		textInput: "#121212",
+		surface: "#454f57",
+		accent: "#e5e5e7",
+		icon: "white",
+		onSurface: "black",
+		disabled: "black",
+		placeholder: "white",
+		backdrop: "black",
+	},
+};
+export { MyDarkTheme, MyDefaultTheme };
